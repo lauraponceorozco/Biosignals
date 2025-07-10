@@ -7,9 +7,10 @@ import experiment_class as E
 num_blocks = 5 # each block contains 3 trials (one for each target), every trial contains multiple epochs
 num_epochs = 12 # each epoch contains all 3 stimuli in random order
 flasing_duration = 0.1  
+ISI = 0.5
 # inter-stimulus interval is given by OpenVibe Designer!
 
-csv_base_folder = "./data/exp2/"  # base folder for CSV files
+csv_base_folder = "./data/exp3_ISI500/"  # base folder for CSV files
 
 
 if __name__ == "__main__":
@@ -17,7 +18,8 @@ if __name__ == "__main__":
     exp = E.Experiment(num_blocks=num_blocks, 
                        num_epochs=num_epochs, 
                        flashing_duration=flasing_duration,
-                       csv_base_folder=csv_base_folder)
+                       csv_base_folder=csv_base_folder,
+                       inter_stimulus_interval=ISI)
 
     stop_event = Event()
 
