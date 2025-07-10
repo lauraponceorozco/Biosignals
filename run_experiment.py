@@ -4,12 +4,12 @@ import experiment_class as E
 
 
 # initialization of variables
-num_blocks = 10 # each block contains 3 trials (one for each target), every trial contains multiple epochs
+num_blocks = 5 # each block contains 3 trials (one for each target), every trial contains multiple epochs
 num_epochs = 12 # each epoch contains all 3 stimuli in random order
 flasing_duration = 0.1  
 # inter-stimulus interval is given by OpenVibe Designer!
 
-csv_base_folder = "./data/exp1/"  # base folder for CSV files
+csv_base_folder = "./data/exp2/"  # base folder for CSV files
 
 
 if __name__ == "__main__":
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     stop_event = Event()
 
     p1 = Process(target=exp.stream_eeg, args=(stop_event,))
-    p2 = Process(target=exp.run_gui)
+    p2 = Process(target=exp.run_gui_local)
 
     p1.start()
     p2.start()
