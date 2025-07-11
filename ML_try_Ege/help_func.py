@@ -170,38 +170,94 @@ def collect_target_nontarget_epochs(df_eeg, df_gui, fs=128, post_time=0.6, n_ave
     # Combine for final X and y arrays (optional stacking)
     return X_target, X_nontarget
 
-def extract_features_from_averaged_epochs(averaged_epochs, fs=250, feature_type="B1"):
+def collect_target_nontarget_diff_epochs(df_eeg, df_gui, fs=128, post_time=0.6, n_average=0, normalization="A1", blink_channel_idx=0, blink_threshold=120):
     """
-    Extracts features from averaged EEG epochs using different strategies (B1-B5).
+    Collects target and non-target averaged epochs from all trials.
+    
+    Returns
+    -------
+    X_target : list of np.array
+        Each array is (epoch_len, n_channels) for target stimulus.
+    X_nontarget : list of np.array
+        Each array is (epoch_len, n_channels) for averaged non-targets.
+    X_diff : list of np.array
+        Each array is (epoch_len, n_channels) for the difference between target and non-targets.
+    """
+    X_target = []
+    X_nontarget = []
+    X_diff = []
+
+    for trial_id, trial_gui in df_gui.groupby('trial'):
+        # Extract averaged epochs for this trial
+        avg_epochs = extract_and_average_epochs_by_stimulus(
+            df_eeg, trial_gui,
+            fs=fs,
+            post_time=post_time,
+            n_average=n_average,
+            normalization=normalization,
+            blink_channel_idx=blink_channel_idx,
+            blink_threshold=blink_threshold
+        )
+        
+        target_stim = trial_gui['target'].iloc[0]  # e.g., 0, 1, or 2
+        
+        # Skip if target epoch is missing (e.g., due to blink rejection)
+        if np.isnan(avg_epochs[target_stim]).all():
+            continue
+        
+        # Append target
+        X_target.append(avg_epochs[target_stim])
+        
+        # Average non-targets
+        non_target_stims = [s for s in [0, 1, 2] if s != target_stim]
+        non_target_epochs = [
+            avg_epochs[s] for s in non_target_stims if not np.isnan(avg_epochs[s]).all()
+        ]
+        if non_target_epochs:
+            avg_nontarget = np.mean(non_target_epochs, axis=0)
+            X_nontarget.append(avg_nontarget)
+            X_diff.append(avg_epochs[target_stim] - avg_nontarget)
+
+    # Combine for final X and y arrays (optional stacking)
+    return X_target, X_nontarget, X_diff
+
+def extract_features_from_averaged_epochs(averaged_epochs, fs=250, feature_type="B1", timepoint="300"):
+    """
+    Extracts features from averaged EEG epochs using different strategies (B1-B5),
+    optionally tailored for 300ms or 200ms P300-type windows.
 
     Parameters
     ----------
     averaged_epochs : dict
-        Dictionary with keys {1, 2, 3}, each containing a NumPy array of shape (epoch_len, n_channels),
-        representing the averaged EEG response for that stimulus.
+        Dictionary with keys {1, 2, 3}, each containing a NumPy array of shape (epoch_len, n_channels).
     fs : int
         Sampling frequency in Hz.
     feature_type : str
-        One of the following options:
-
-        - "B1" - Time-series from 290 ms to end of epoch (shape: T × C)
-        - "B2" - Same as B1, but decimated by 4 (shape: T/4 × C)
-        - "B3" - P300 amplitude: mean ±10 ms around peak in 290-500 ms window (shape: C,)
-        - "B4" - P300 amplitude: max value in 290-500 ms (shape: C,)
-        - "B5" - P300 amplitude at exactly 310 ms (shape: C,)
+        Feature extraction type: "B1", "B2", "B3", "B4", "B5".
+    timepoint : str
+        Either "300" or "200", controls the time windows:
+            - "300": B3/B4 use 300–400 ms, B5 at 350 ms
+            - "200": B3/B4 use 250–300 ms, B5 at 280 ms
 
     Returns
     -------
     features : dict
-        Dictionary with keys {1, 2, 3}, each containing:
-        - For B1 and B2: a time - channel matrix (2D array)
-        - For B3-B5: a channel-wise summary vector (1D array)
+        Extracted features for each stimulus.
     """
     features = {}
+
+    # Time parameters
+    if timepoint == "300":
+        p300_window = (300, 400)
+        t_fixed = 350
+    elif timepoint == "200":
+        p300_window = (250, 300)
+        t_fixed = 280
+    else:
+        raise ValueError("Invalid timepoint. Choose '300' or '200'.")
+
     start_ms = 290
-    p300_window = (290, 500)
-    window_size_ms = 10
-    t_300_ms = 310
+    window_size_ms = 10  # For ±10 ms around peak
 
     for stim, epoch in averaged_epochs.items():
         if epoch is None or np.all(np.isnan(epoch)):
@@ -212,17 +268,17 @@ def extract_features_from_averaged_epochs(averaged_epochs, fs=250, feature_type=
         time_vector = np.arange(n_time) * (1000 / fs)  # time in ms
 
         if feature_type == "B1":
-            # Time-series from 290 ms onward (shape: T × C)
+            # Time-series from 290 ms onward
             mask = time_vector >= start_ms
-            feat = epoch[mask]  # shape: (T_b1, C)
+            feat = epoch[mask]
 
         elif feature_type == "B2":
-            # Time-series from 290 ms onward, decimated by 4 (shape: T/4 × C)
+            # Time-series from 290 ms onward, decimated by 4
             mask = time_vector >= start_ms
-            feat = epoch[mask][::4]  # shape: (T_b2, C)
+            feat = epoch[mask][::4]
 
         elif feature_type == "B3":
-            # Peak in 290–500 → average ±10 ms window around it
+            # Peak in p300_window → average ±10 ms
             mask = (time_vector >= p300_window[0]) & (time_vector <= p300_window[1])
             windowed = epoch[mask]
             time_in_window = time_vector[mask]
@@ -232,21 +288,111 @@ def extract_features_from_averaged_epochs(averaged_epochs, fs=250, feature_type=
                 center_time = time_in_window[peak_idx[ch]]
                 win_mask = (time_vector >= center_time - window_size_ms) & (time_vector <= center_time + window_size_ms)
                 feat.append(epoch[win_mask, ch].mean())
-            feat = np.array(feat)  # shape: (C,)
+            feat = np.array(feat)
 
         elif feature_type == "B4":
-            # Max amplitude between 290–500 ms (shape: C,)
+            # Max amplitude in p300_window
             mask = (time_vector >= p300_window[0]) & (time_vector <= p300_window[1])
             feat = epoch[mask].max(axis=0)
 
         elif feature_type == "B5":
-            # Amplitude at exactly 300 ms (shape: C,)
-            idx_300 = np.argmin(np.abs(time_vector - t_300_ms))
-            feat = epoch[idx_300]
+            # Amplitude at t_fixed
+            idx_fixed = np.argmin(np.abs(time_vector - t_fixed))
+            feat = epoch[idx_fixed]
 
         else:
-            raise ValueError("Invalid feature_type. Use 'B1', 'B2', 'B3', 'B4', or 'B5'.")
+            raise ValueError("Invalid feature_type. Use 'B1'–'B5'.")
 
         features[stim] = feat
 
     return features
+
+
+def collect_combined_features_all_sessions(
+    base_folder,
+    fs=128,
+    post_time=0.6,
+    n_average=0,
+    normalization="A1",
+    feature_types=["B3"],  # Can be ["B3", "B4", "B5"]
+    blink_channel_idx=0,
+    blink_threshold=120
+):
+    """
+    Processes all sessions and extracts combined 300 ms and 200 ms features
+    for both target and non-target stimuli per trial.
+
+    Returns
+    -------
+    X : np.ndarray
+        Combined feature matrix (n_trials × 2, n_features)
+    y : np.ndarray
+        Labels (1 = target, 0 = non-target)
+    """
+    all_X = []
+    all_y = []
+    trial_offset = 0
+
+    for session_folder in sorted(Path(base_folder).glob("session_*")):
+        eeg_path = session_folder / "eeg_data.csv"
+        gui_path = session_folder / "gui_data.csv"
+        
+        if not eeg_path.exists() or not gui_path.exists():
+            continue
+
+        df_eeg = pd.read_csv(eeg_path)
+        df_gui = pd.read_csv(gui_path)
+        df_eeg = interpolate_plateaus_in_ux(df_eeg)
+
+        df_gui['trial'] += trial_offset
+        trial_offset = df_gui['trial'].max() + 1
+
+        for trial_id, trial_gui in df_gui.groupby("trial"):
+            averaged_epochs = extract_and_average_epochs_by_stimulus(
+                df_eeg=df_eeg,
+                df_gui=trial_gui,
+                fs=fs,
+                post_time=post_time,
+                n_average=n_average,
+                normalization=normalization,
+                blink_channel_idx=blink_channel_idx,
+                blink_threshold=blink_threshold
+            )
+
+            target = trial_gui["target"].iloc[0]
+            stimuli = [0, 1, 2]
+
+            for stim in stimuli:
+                trial_features = []
+
+                for feature_type in feature_types:
+                    features_300 = extract_features_from_averaged_epochs(
+                        averaged_epochs,
+                        fs=fs,
+                        feature_type=feature_type,
+                        timepoint="300"
+                    )
+                    features_200 = extract_features_from_averaged_epochs(
+                        averaged_epochs,
+                        fs=fs,
+                        feature_type=feature_type,
+                        timepoint="200"
+                    )
+
+                    f300 = features_300.get(stim)
+                    f200 = features_200.get(stim)
+
+                    if f300 is None or f200 is None:
+                        trial_features = None
+                        break
+
+                    trial_features.extend(f300)
+                    trial_features.extend(f200)
+
+                if trial_features is not None:
+                    all_X.append(trial_features)
+                    all_y.append(1 if stim == target else 0)
+
+    X = np.vstack(all_X)
+    y = np.array(all_y)
+    return X, y
