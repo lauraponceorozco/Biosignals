@@ -312,9 +312,9 @@ class Experiment:
                     if current_time - last_time >= self.inter_stimulus_interval:
                         if stimulus_list:
                             idx = stimulus_list.pop(0)
-                            draw_choice_box(highlight_idx=idx)# choose between flasing text of boxes using _box or _text
+                            draw_choice_text(highlight_idx=idx)# choose between flasing text of boxes using _box or _text
                             time.sleep(self.flashing_duration)
-                            draw_choice_box()  # no highlight
+                            draw_choice_text()  # no highlight
 
                             # bool value indicates if stim corresponds to target
                             is_target = int(idx == target_idx) #(redundant, but for clarity)
