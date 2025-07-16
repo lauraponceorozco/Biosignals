@@ -60,17 +60,17 @@ def align_all_timestamps(df_eeg,df_gui):
     # asign times back to the dataframe
     df_eeg['timestamp_ux'] = t_ux
     df_eeg['timestamp'] = t_lsl
-    df_gui['timestamp_ux'] = t_gui
+    df_gui['timestamp'] = t_gui
 
     # more precise timing: in delete the very last row, where ux timestamps repeat
-    print(len(df_eeg))
+    #print(len(df_eeg))
     for i in range(len(df_eeg) - 1, -1, -1): # loop reverse
         if df_eeg['timestamp_ux'].iloc[i] == df_eeg['timestamp_ux'].iloc[i - 1]:
             df_eeg = df_eeg.drop(i)
-            print(f"Drop row {i} with repeated ux timestamp")
+    #        print(f"Drop row {i} with repeated ux timestamp")
         else:
             break
-    print(df_eeg['timestamp_ux'])
+    #print(df_eeg['timestamp_ux'])
 
 
     # scale the duration of the lsl timestamps to match the total recording duration
@@ -79,6 +79,8 @@ def align_all_timestamps(df_eeg,df_gui):
     scale_factor = t_end_ux / t_end_lsl
     df_eeg['timestamp'] = df_eeg['timestamp'] * scale_factor
 
+    # The code was using timestamp_ux for plotting, so overwrite with timestamp instead
+    df_eeg['timestamp_ux'] = df_eeg['timestamp']
     #print(df_eeg)
     #print(df_gui)
 
@@ -114,8 +116,7 @@ def extract_and_average_epochs_by_stimulus(df_eeg, df_gui, fs=128, post_time=0.6
     averaged_epochs : dict
         Dictionary with keys {1, 2, 3}, each containing array of shape (epoch_len, n_channels)
     """
-    #eeg_t = df_eeg['timestamp_ux'].values
-    eeg_t = df_eeg['timestamp'].values
+    eeg_t = df_eeg['timestamp_ux'].values
     eeg_X = df_eeg.drop(columns=['timestamp','timestamp_ux']).values
     n_samples, n_channels = eeg_X.shape
 
@@ -138,7 +139,7 @@ def extract_and_average_epochs_by_stimulus(df_eeg, df_gui, fs=128, post_time=0.6
             gui_eeg_idx = gui_eeg_idx[:n_average]
 
         epochs = eeg_X[gui_eeg_idx[:, None] + epoch_offsets]  # (n_epochs, epoch_len, n_channels)
-        breakpoint()
+        # breakpoint()
         # Fast vectorized blink rejection (based on peak-to-peak amplitude)
         blink_channel = epochs[:, :, blink_channel_idx]
         ptp_amplitude = np.ptp(blink_channel, axis=1)
