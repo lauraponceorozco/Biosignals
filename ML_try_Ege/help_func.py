@@ -439,3 +439,97 @@ def collect_combined_features_all_sessions(
     X = np.vstack(all_X)
     y = np.array(all_y)
     return X, y
+
+
+def collect_combined_features_all_sessions_multiclass(
+    base_folder,
+    fs=128,
+    post_time=0.6,
+    n_average=0,
+    normalization="A1",
+    feature_types=["B3"],
+    blink_channel_idx=0,
+    blink_threshold=120
+):
+    """
+    For each trial, extract and concatenate the features of all 3 stimuli (0,1,2),
+    returning one feature vector per trial. Label is the true target stimulus (0/1/2).
+
+    Returns
+    -------
+    X : np.ndarray
+        Feature matrix (n_trials, 3 × n_features_per_stimulus)
+    y : np.ndarray
+        Labels (0, 1, or 2) → the target stimulus of the trial
+    """
+    all_X = []
+    all_y = []
+    trial_offset = 0
+
+    for session_folder in sorted(Path(base_folder).glob("session_*")):
+        eeg_path = session_folder / "eeg_data.csv"
+        gui_path = session_folder / "gui_data.csv"
+
+        if not eeg_path.exists() or not gui_path.exists():
+            continue
+
+        df_eeg = pd.read_csv(eeg_path)
+        df_gui = pd.read_csv(gui_path)
+        df_eeg, df_gui = align_all_timestamps(df_eeg, df_gui)
+
+        df_gui['trial'] += trial_offset
+        trial_offset = df_gui['trial'].max() + 1
+
+        for trial_id, trial_gui in df_gui.groupby("trial"):
+            averaged_epochs = extract_and_average_epochs_by_stimulus(
+                df_eeg=df_eeg,
+                df_gui=trial_gui,
+                fs=fs,
+                post_time=post_time,
+                n_average=n_average,
+                normalization=normalization,
+                blink_channel_idx=blink_channel_idx,
+                blink_threshold=blink_threshold
+            )
+
+            full_trial_features = []
+            success = True
+
+            for stim in [0, 1, 2]:
+                stim_features = []
+
+                for feature_type in feature_types:
+                    f300 = extract_features_from_averaged_epochs(
+                        averaged_epochs,
+                        fs=fs,
+                        feature_type=feature_type,
+                        timepoint="300"
+                    ).get(stim)
+
+                    f200 = extract_features_from_averaged_epochs(
+                        averaged_epochs,
+                        fs=fs,
+                        feature_type=feature_type,
+                        timepoint="200"
+                    ).get(stim)
+
+                    if f300 is None or f200 is None:
+                        success = False
+                        break
+
+                    stim_features.extend(f300)
+                    stim_features.extend(f200)
+
+                if not success:
+                    break
+
+                full_trial_features.extend(stim_features)
+
+            if success:
+                all_X.append(full_trial_features)
+                all_y.append(trial_gui["target"].iloc[0])  # Label = target stim (0,1,2)
+
+    X = np.vstack(all_X)
+    y = np.array(all_y)
+    return X, y
+
