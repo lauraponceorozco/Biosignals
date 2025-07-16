@@ -46,6 +46,46 @@ def interpolate_plateaus_in_ux(df_eeg, column='timestamp_ux'):
     df_eeg[column] = ux_new
     return df_eeg
 
+
+def align_all_timestamps(df_eeg,df_gui):
+    # no interpolation! Instead: use lsl timestamps and correct duration
+
+    # zero the timestamps
+    t_ref = df_eeg['timestamp_ux'].iloc[0]
+    t_ux = df_eeg['timestamp_ux'] - df_eeg['timestamp_ux'].iloc[0]
+    t_lsl = df_eeg['timestamp'] - df_eeg['timestamp'].iloc[0] #also start at zero and at the eqal time as t_ux
+
+    t_gui = df_gui['timestamp'] - t_ref # use the same reference as for t_ux
+
+    # asign times back to the dataframe
+    df_eeg['timestamp_ux'] = t_ux
+    df_eeg['timestamp'] = t_lsl
+    df_gui['timestamp_ux'] = t_gui
+
+    # more precise timing: in delete the very last row, where ux timestamps repeat
+    print(len(df_eeg))
+    for i in range(len(df_eeg) - 1, -1, -1): # loop reverse
+        if df_eeg['timestamp_ux'].iloc[i] == df_eeg['timestamp_ux'].iloc[i - 1]:
+            df_eeg = df_eeg.drop(i)
+            print(f"Drop row {i} with repeated ux timestamp")
+        else:
+            break
+    print(df_eeg['timestamp_ux'])
+
+
+    # scale the duration of the lsl timestamps to match the total recording duration
+    t_end_ux = df_eeg['timestamp_ux'].iloc[-1]
+    t_end_lsl = df_eeg['timestamp'].iloc[-1]
+    scale_factor = t_end_ux / t_end_lsl
+    df_eeg['timestamp'] = df_eeg['timestamp'] * scale_factor
+
+    #print(df_eeg)
+    #print(df_gui)
+
+    return df_eeg, df_gui
+
+
+
 def extract_and_average_epochs_by_stimulus(df_eeg, df_gui, fs=128, post_time=0.6, n_average=0, normalization="A1",blink_channel_idx=0, blink_threshold=120):
     """
     Extracts EEG epochs aligned to GUI stimulus timestamps,
@@ -74,7 +114,8 @@ def extract_and_average_epochs_by_stimulus(df_eeg, df_gui, fs=128, post_time=0.6
     averaged_epochs : dict
         Dictionary with keys {1, 2, 3}, each containing array of shape (epoch_len, n_channels)
     """
-    eeg_t = df_eeg['timestamp_ux'].values
+    #eeg_t = df_eeg['timestamp_ux'].values
+    eeg_t = df_eeg['timestamp'].values
     eeg_X = df_eeg.drop(columns=['timestamp','timestamp_ux']).values
     n_samples, n_channels = eeg_X.shape
 
@@ -342,7 +383,8 @@ def collect_combined_features_all_sessions(
 
         df_eeg = pd.read_csv(eeg_path)
         df_gui = pd.read_csv(gui_path)
-        df_eeg = interpolate_plateaus_in_ux(df_eeg)
+        #df_eeg = interpolate_plateaus_in_ux(df_eeg)
+        df_eeg, df_gui = align_all_timestamps(df_eeg, df_gui)
 
         df_gui['trial'] += trial_offset
         trial_offset = df_gui['trial'].max() + 1
