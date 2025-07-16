@@ -6,11 +6,11 @@ import experiment_class as E
 # initialization of variables
 num_blocks = 5 # each block contains 3 trials (one for each target), every trial contains multiple epochs
 num_epochs = 12 # each epoch contains all 3 stimuli in random order
-flasing_duration = 0.1  
-ISI = 0.5
+flasing_duration = 0.2  
+ISI = 0.8
 # inter-stimulus interval is given by OpenVibe Designer!
 
-csv_base_folder = "./data/exp3_ISI500/"  # base folder for CSV files
+csv_base_folder = "./data/tina2/"  # base folder for CSV files
 
 
 if __name__ == "__main__":
