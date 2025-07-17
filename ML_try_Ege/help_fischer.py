@@ -86,3 +86,33 @@ def plot_fisher_scores(fisher_scores, channel_names, title="Fisher Scores (Targe
     plt.savefig("FisherScores_28Features.png", dpi=300)
     plt.show()
 
+def select_top_k_fisher_multiclass(X, y, k):
+    """
+    Compute Fisher scores for each feature across multiple classes.
+    Returns:
+        X_selected: (n_samples, k) matrix with selected features
+        selected_indices: list of selected feature indices
+    """
+    n_classes = len(np.unique(y))
+    n_samples, n_features = X.shape
+
+    overall_mean = np.mean(X, axis=0)
+
+    # Between-class variance
+    SB = np.zeros(n_features)
+    SW = np.zeros(n_features)
+
+    for cls in np.unique(y):
+        X_c = X[y == cls]
+        n_c = X_c.shape[0]
+        mean_c = np.mean(X_c, axis=0)
+        var_c = np.var(X_c, axis=0) + 1e-6  # Avoid division by zero
+
+        SB += n_c * (mean_c - overall_mean) ** 2
+        SW += n_c * var_c
+
+    fisher_score = SB / SW
+    selected_indices = np.argsort(fisher_score)[-k:][::-1]  # Top-k features
+
+    X_selected = X[:, selected_indices]
+    return X_selected, selected_indices

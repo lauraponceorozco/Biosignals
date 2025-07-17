@@ -46,6 +46,48 @@ def interpolate_plateaus_in_ux(df_eeg, column='timestamp_ux'):
     df_eeg[column] = ux_new
     return df_eeg
 
+
+def align_all_timestamps(df_eeg,df_gui):
+    # no interpolation! Instead: use lsl timestamps and correct duration
+
+    # zero the timestamps
+    t_ref = df_eeg['timestamp_ux'].iloc[0]
+    t_ux = df_eeg['timestamp_ux'] - df_eeg['timestamp_ux'].iloc[0]
+    t_lsl = df_eeg['timestamp'] - df_eeg['timestamp'].iloc[0] #also start at zero and at the eqal time as t_ux
+
+    t_gui = df_gui['timestamp'] - t_ref # use the same reference as for t_ux
+
+    # asign times back to the dataframe
+    df_eeg['timestamp_ux'] = t_ux
+    df_eeg['timestamp'] = t_lsl
+    df_gui['timestamp'] = t_gui
+
+    # more precise timing: in delete the very last row, where ux timestamps repeat
+    #print(len(df_eeg))
+    for i in range(len(df_eeg) - 1, -1, -1): # loop reverse
+        if df_eeg['timestamp_ux'].iloc[i] == df_eeg['timestamp_ux'].iloc[i - 1]:
+            df_eeg = df_eeg.drop(i)
+    #        print(f"Drop row {i} with repeated ux timestamp")
+        else:
+            break
+    #print(df_eeg['timestamp_ux'])
+
+
+    # scale the duration of the lsl timestamps to match the total recording duration
+    t_end_ux = df_eeg['timestamp_ux'].iloc[-1]
+    t_end_lsl = df_eeg['timestamp'].iloc[-1]
+    scale_factor = t_end_ux / t_end_lsl
+    df_eeg['timestamp'] = df_eeg['timestamp'] * scale_factor
+
+    # The code was using timestamp_ux for plotting, so overwrite with timestamp instead
+    df_eeg['timestamp_ux'] = df_eeg['timestamp']
+    #print(df_eeg)
+    #print(df_gui)
+
+    return df_eeg, df_gui
+
+
+
 def extract_and_average_epochs_by_stimulus(df_eeg, df_gui, fs=128, post_time=0.6, n_average=0, normalization="A1",blink_channel_idx=0, blink_threshold=120):
     """
     Extracts EEG epochs aligned to GUI stimulus timestamps,
@@ -97,7 +139,7 @@ def extract_and_average_epochs_by_stimulus(df_eeg, df_gui, fs=128, post_time=0.6
             gui_eeg_idx = gui_eeg_idx[:n_average]
 
         epochs = eeg_X[gui_eeg_idx[:, None] + epoch_offsets]  # (n_epochs, epoch_len, n_channels)
-        breakpoint()
+        # breakpoint()
         # Fast vectorized blink rejection (based on peak-to-peak amplitude)
         blink_channel = epochs[:, :, blink_channel_idx]
         ptp_amplitude = np.ptp(blink_channel, axis=1)
@@ -342,7 +384,8 @@ def collect_combined_features_all_sessions(
 
         df_eeg = pd.read_csv(eeg_path)
         df_gui = pd.read_csv(gui_path)
-        df_eeg = interpolate_plateaus_in_ux(df_eeg)
+        #df_eeg = interpolate_plateaus_in_ux(df_eeg)
+        df_eeg, df_gui = align_all_timestamps(df_eeg, df_gui)
 
         df_gui['trial'] += trial_offset
         trial_offset = df_gui['trial'].max() + 1
@@ -396,3 +439,97 @@ def collect_combined_features_all_sessions(
     X = np.vstack(all_X)
     y = np.array(all_y)
     return X, y
+
+
+def collect_combined_features_all_sessions_multiclass(
+    base_folder,
+    fs=128,
+    post_time=0.6,
+    n_average=0,
+    normalization="A1",
+    feature_types=["B3"],
+    blink_channel_idx=0,
+    blink_threshold=120
+):
+    """
+    For each trial, extract and concatenate the features of all 3 stimuli (0,1,2),
+    returning one feature vector per trial. Label is the true target stimulus (0/1/2).
+
+    Returns
+    -------
+    X : np.ndarray
+        Feature matrix (n_trials, 3 × n_features_per_stimulus)
+    y : np.ndarray
+        Labels (0, 1, or 2) → the target stimulus of the trial
+    """
+    all_X = []
+    all_y = []
+    trial_offset = 0
+
+    for session_folder in sorted(Path(base_folder).glob("session_*")):
+        eeg_path = session_folder / "eeg_data.csv"
+        gui_path = session_folder / "gui_data.csv"
+
+        if not eeg_path.exists() or not gui_path.exists():
+            continue
+
+        df_eeg = pd.read_csv(eeg_path)
+        df_gui = pd.read_csv(gui_path)
+        df_eeg, df_gui = align_all_timestamps(df_eeg, df_gui)
+
+        df_gui['trial'] += trial_offset
+        trial_offset = df_gui['trial'].max() + 1
+
+        for trial_id, trial_gui in df_gui.groupby("trial"):
+            averaged_epochs = extract_and_average_epochs_by_stimulus(
+                df_eeg=df_eeg,
+                df_gui=trial_gui,
+                fs=fs,
+                post_time=post_time,
+                n_average=n_average,
+                normalization=normalization,
+                blink_channel_idx=blink_channel_idx,
+                blink_threshold=blink_threshold
+            )
+
+            full_trial_features = []
+            success = True
+
+            for stim in [0, 1, 2]:
+                stim_features = []
+
+                for feature_type in feature_types:
+                    f300 = extract_features_from_averaged_epochs(
+                        averaged_epochs,
+                        fs=fs,
+                        feature_type=feature_type,
+                        timepoint="300"
+                    ).get(stim)
+
+                    f200 = extract_features_from_averaged_epochs(
+                        averaged_epochs,
+                        fs=fs,
+                        feature_type=feature_type,
+                        timepoint="200"
+                    ).get(stim)
+
+                    if f300 is None or f200 is None:
+                        success = False
+                        break
+
+                    stim_features.extend(f300)
+                    stim_features.extend(f200)
+
+                if not success:
+                    break
+
+                full_trial_features.extend(stim_features)
+
+            if success:
+                all_X.append(full_trial_features)
+                all_y.append(trial_gui["target"].iloc[0])  # Label = target stim (0,1,2)
+
+    X = np.vstack(all_X)
+    y = np.array(all_y)
+    return X, y
+

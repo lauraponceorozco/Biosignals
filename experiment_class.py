@@ -76,7 +76,7 @@ class Experiment:
 
         # Initialize
         pygame.init()
-        screen = pygame.display.set_mode((800, 600))
+        screen = pygame.display.set_mode((1280, 800))
         pygame.display.set_caption("Rock Paper Scissors Flash")
 
         # Colors and font
@@ -90,7 +90,7 @@ class Experiment:
         # Measure text sizes and compute total width
         text_surfaces = [font.render(choice, True, GRAY) for choice in choices]
         text_widths = [surf.get_width() for surf in text_surfaces]
-        spacing = 60  # space between words
+        spacing = 200  # space between words
         total_width = sum(text_widths) + spacing * (len(choices) - 1)
 
         # Compute starting x so it’s centered
@@ -213,7 +213,7 @@ class Experiment:
 
         # Initialize
         pygame.init()
-        screen = pygame.display.set_mode((800, 600))
+        screen = pygame.display.set_mode((1280, 800))
         pygame.display.set_caption("Rock Paper Scissors Flash")
 
         # Colors and font
@@ -227,7 +227,7 @@ class Experiment:
         # Measure text sizes and compute total width
         text_surfaces = [font.render(choice, True, GRAY) for choice in choices]
         text_widths = [surf.get_width() for surf in text_surfaces]
-        spacing = 60  # space between words
+        spacing = 200  # space between words
         total_width = sum(text_widths) + spacing * (len(choices) - 1)
 
         # Compute starting x so it’s centered
