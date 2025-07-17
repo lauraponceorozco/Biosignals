@@ -10,7 +10,7 @@ flasing_duration = 0.2
 ISI = 0.8
 # inter-stimulus interval is given by OpenVibe Designer!
 
-csv_base_folder = "./data/tina2/"  # base folder for CSV files
+csv_base_folder = "./data/tinabig_screen/"  # base folder for CSV files
 
 
 if __name__ == "__main__":
