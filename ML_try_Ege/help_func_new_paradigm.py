@@ -327,3 +327,90 @@ def process_and_combine_all_csvs(folder_path, fs=128, tmin=-0.2, tmax=1.0,
         all_results.append(df_flashwise_averages)
 
     return pd.concat(all_results, ignore_index=True)
+
+def plot_topoplots_from_combined(df_combined, fs=128, tmin=-0.2,
+                                  actual_timepoints_ms=[460, 700],
+                                  display_labels_ms=["230", "350"],
+                                  out_dir="new_paradigm/topoplots",
+                                  addendum=""):
+    """
+    Plots and saves topoplots at specified timepoints, while labeling using display ms.
+
+    Parameters
+    ----------
+    df_combined : pd.DataFrame
+        Output from process_and_combine_all_csvs().
+    fs : int
+        Sampling frequency (Hz).
+    tmin : float
+        Epoch start time in seconds (used for aligning the index).
+    actual_timepoints_ms : list of int
+        Real timepoints in ms to extract from waveform (e.g., [460, 700]).
+    display_labels_ms : list of str
+        Labels for plot/saving (e.g., ["230", "350"]) for naming consistency.
+    out_dir : str
+        Folder where topoplots will be saved.
+    """
+
+    assert len(actual_timepoints_ms) == len(display_labels_ms), "Mismatch in timepoint-label pairs."
+
+    # === Channel setup ===
+    channel_names = ['AF3', 'F7', 'F3', 'FC5', 'T7', 'P7', 'O1',
+                     'O2', 'P8', 'T8', 'FC6', 'F4', 'F8', 'AF4']
+    n_channels = len(channel_names)
+
+    # === Create output directory ===
+    Path(out_dir).mkdir(parents=True, exist_ok=True)
+
+    # === Separate conditions ===
+    def get_group_avg(df, is_target, include):
+        subset = df[(df["is_target"] == is_target) & (df["which_one"].str.contains(include))]
+        if subset.empty:
+            return np.zeros((len(subset.iloc[0][channel_names[0]]), n_channels))
+        return np.mean(
+            np.stack([np.stack([row[ch] for ch in channel_names], axis=1)
+                      for _, row in subset.iterrows()]), axis=0)
+
+    target_avg = get_group_avg(df_combined, is_target=1, include="")
+    nontarget_avg = get_group_avg(df_combined, is_target=0, include="")
+    diff_avg = target_avg - nontarget_avg
+
+    # === MNE info ===
+    info = mne.create_info(ch_names=channel_names, sfreq=fs, ch_types='eeg')
+    montage = mne.channels.make_standard_montage('standard_1020')
+    info.set_montage(montage)
+
+    # === Plot each timepoint ===
+    for true_ms, label_ms in zip(actual_timepoints_ms, display_labels_ms):
+        time_idx = int((tmin + (true_ms / 1000.0)) * fs)
+
+        val_target = target_avg[time_idx]
+        val_nontarget = nontarget_avg[time_idx]
+        val_diff = diff_avg[time_idx]
+
+        fig, axes = plt.subplots(1, 3, figsize=(15, 4))
+
+        for i, (data, title) in enumerate(zip(
+            [val_target, val_nontarget, val_diff],
+            ["Target", "Non-target", "Target − Non-target"]
+        )):
+            vmin, vmax = (np.min(val_diff), np.max(val_diff)) if i == 2 else (np.min(data), np.max(data))
+
+            im, _ = mne.viz.plot_topomap(
+                data,
+                pos=info,
+                axes=axes[i],
+                show=False,
+                cmap='RdBu_r',
+                contours=0,
+                names=channel_names,
+                vlim=(vmin, vmax)
+            )
+            axes[i].set_title(f"{title} @ {label_ms} ms")
+            plt.colorbar(im, ax=axes[i], orientation='vertical', fraction=0.046, pad=0.04)
+
+        fig.suptitle(f"Topomap at {label_ms} ms", fontsize=16)
+        plt.tight_layout()
+        plt.savefig(Path(out_dir) / f"Topomap_{label_ms}ms_{addendum}.png", dpi=300)
+        plt.show()
+
