@@ -100,7 +100,7 @@ def add_trial_count_column_for_flashes_only(df, flashes_per_trial=72):
 
 def epoch_grouped_trialwise_average(df, fs=128, tmin=-0.2, tmax=1.0,
                                     blink_channel_idx=0, blink_threshold=120,
-                                    normalization="A1"):
+                                    normalization="A1", blink_rejection=True):
     """
     Returns 6 flash-averaged epochs (14 channels) per trial as 1 row each.
     Each channel is stored as a vector. Also returns is_target per flash type.
@@ -113,6 +113,7 @@ def epoch_grouped_trialwise_average(df, fs=128, tmin=-0.2, tmax=1.0,
     blink_channel_idx : int, channel index used for blink rejection
     blink_threshold : float, max peak-to-peak amplitude
     normalization : str, 'A1', 'A2', or 'A3'
+    blink_rejection : bool, whether to apply blink-based epoch rejection
 
     Returns
     -------
@@ -126,7 +127,6 @@ def epoch_grouped_trialwise_average(df, fs=128, tmin=-0.2, tmax=1.0,
     epoch_len = pre_samples + post_samples
     epoch_offsets = np.arange(-pre_samples, post_samples)
 
-    # Time-locked valid events
     valid = df[df["trial_count"].notna()].copy()
     valid["trial_count"] = valid["trial_count"].astype(int)
 
@@ -147,9 +147,10 @@ def epoch_grouped_trialwise_average(df, fs=128, tmin=-0.2, tmax=1.0,
             if epoch.shape[0] != epoch_len:
                 continue
 
-            blink_signal = epoch[:, blink_channel_idx]
-            if np.ptp(blink_signal) > blink_threshold:
-                continue
+            if blink_rejection:
+                blink_signal = epoch[:, blink_channel_idx]
+                if np.ptp(blink_signal) > blink_threshold:
+                    continue
 
             if normalization == "A1":
                 epoch = epoch - epoch.mean(axis=0, keepdims=True)
@@ -170,14 +171,13 @@ def epoch_grouped_trialwise_average(df, fs=128, tmin=-0.2, tmax=1.0,
         if normalization == "A2":
             avg_epoch = avg_epoch - avg_epoch.mean(axis=0, keepdims=True)
 
-        # Pack into 1 row: each channel column is a vector
         row = {
             "trial_count": trial,
             "which_one": flash,
             "is_target": int(label)
         }
         for ch_idx, ch in enumerate(eeg_cols):
-            row[ch] = avg_epoch[:, ch_idx]  # shape: (epoch_len,)
+            row[ch] = avg_epoch[:, ch_idx]
         output_rows.append(row)
 
     return pd.DataFrame(output_rows)
@@ -277,7 +277,7 @@ def plot_6_flash_erp_curves(df_flashwise_averages, fs=128, tmin=-0.2, out_dir="n
 
 def process_and_combine_all_csvs(folder_path, fs=128, tmin=-0.2, tmax=1.0,
                                  normalization="A1", blink_channel_idx=0,
-                                 blink_threshold=120):
+                                 blink_threshold=120,blink_rejection=True):
     """
     Processes all .csv files in a folder and combines the trialwise flash averages,
     adjusting trial_count across files to avoid overlap.
@@ -318,7 +318,8 @@ def process_and_combine_all_csvs(folder_path, fs=128, tmin=-0.2, tmax=1.0,
                                                                 fs=fs, tmin=tmin, tmax=tmax,
                                                                 normalization=normalization,
                                                                 blink_channel_idx=blink_channel_idx,
-                                                                blink_threshold=blink_threshold)
+                                                                blink_threshold=blink_threshold,
+                                                                blink_rejection=blink_rejection)
 
         # Shift trial counts to make them unique across files
         df_flashwise_averages["trial_count"] += trial_offset
@@ -414,3 +415,90 @@ def plot_topoplots_from_combined(df_combined, fs=128, tmin=-0.2,
         plt.savefig(Path(out_dir) / f"Topomap_{label_ms}ms_{addendum}.png", dpi=300)
         plt.show()
 
+
+
+
+### ML methods
+def extract_features_from_df_combined(df_combined, fs=128, feature_types=["B3", "B4", "B5"]):
+    """
+    Extracts features (B3, B4, B5) from df_combined per trial × flash.
+    
+    Parameters
+    ----------
+    df_combined : pd.DataFrame
+        Flash-wise averaged ERP data with trial_count, which_one, is_target, and channel vectors.
+    fs : int
+        Sampling frequency.
+    feature_types : list
+        List of feature types to compute: any of ["B3", "B4", "B5"]
+
+    Returns
+    -------
+    X : np.ndarray of shape (n_trials * 6, n_features)
+    y : np.ndarray of shape (n_trials * 6,)
+    """
+
+    import numpy as np
+
+    channel_names = ['AF3', 'F7', 'F3', 'FC5', 'T7', 'P7', 'O1',
+                     'O2', 'P8', 'T8', 'FC6', 'F4', 'F8', 'AF4']
+
+    timepoints = {
+        "300": {"win": (600, 800), "center": 700},
+        "200": {"win": (400, 600), "center": 460}
+    }
+
+    def time_to_idx(ms):
+        return int((ms / 1000.0) * fs)
+
+    def extract_features(epoch, feature_type, window, center):
+        t = np.arange(epoch.shape[0]) * 1000 / fs  # ms
+        mask = (t >= window[0]) & (t <= window[1])
+        sub_epoch = epoch[mask]
+        t_window = t[mask]
+
+        if feature_type == "B3":
+            # abs peak ±10 ms
+            feat = []
+            for ch in range(epoch.shape[1]):
+                abs_sig = np.abs(sub_epoch[:, ch])
+                peak_idx = np.argmax(abs_sig)
+                peak_time = t_window[peak_idx]
+                around_mask = (t >= peak_time - 10) & (t <= peak_time + 10)
+                feat.append(epoch[around_mask, ch].mean())
+            return np.array(feat)
+
+        elif feature_type == "B4":
+            # now uses max(abs(signal))
+            return np.abs(sub_epoch).max(axis=0)
+
+        elif feature_type == "B5":
+            center_idx = np.argmin(np.abs(t - center))
+            return epoch[center_idx, :]
+
+        else:
+            raise ValueError("Invalid feature type.")
+
+
+    X = []
+    y = []
+
+    for trial_id, trial_df in df_combined.groupby("trial_count"):
+        # Sort in order: column_1, column_2, column_3, row_1, row_2, row_3
+        col_df = trial_df[trial_df["which_one"].str.contains("column", case=False)].sort_values("which_one")
+        row_df = trial_df[trial_df["which_one"].str.contains("row", case=False)].sort_values("which_one")
+        ordered_df = pd.concat([col_df, row_df])
+
+        for _, row in ordered_df.iterrows():
+            epoch = np.stack([row[ch] for ch in channel_names], axis=1)  # shape: time × ch
+            feature_vector = []
+
+            for tp in ["300", "200"]:
+                for ft in feature_types:
+                    feat = extract_features(epoch, ft, window=timepoints[tp]["win"], center=timepoints[tp]["center"])
+                    feature_vector.extend(feat)
+
+            X.append(feature_vector)
+            y.append(int(row["is_target"]))
+
+    return np.array(X), np.array(y)
