@@ -1,0 +1,5 @@
+[2025-07-22 18:03:56][neurapy_logger.drawing_utils][INFO] : Logging to file: Application_Real_Time\Robotdata\logs\drawing_drawing_utils_2025-07-22_18-03-56.log
+[2025-07-22 18:03:57][neurapy_logger.drawing_utils][INFO] : Successfully loaded 9 positions from Application_Real_Time/Robot/data/tictactoe_positions_green.json
+[2025-07-22 18:03:57][neurapy_logger.drawing_utils][ERROR] : Grid position file not found: Application_Real_Time/Robotdata/grid_positions_green.json
+[2025-07-22 18:03:59][neurapy_logger.drawing_utils][INFO] : User selected position: upper_left
+[2025-07-22 18:04:16][neurapy_logger.drawing_utils][INFO] : User selected position: upper_center

@@ -1,0 +1,184 @@
+[2025-07-22 18:36:54][neurapy_logger.drawing_utils][INFO] : Logging to file: Application_Real_Time\Robot\data\logs\drawing_drawing_utils_2025-07-22_18-36-54.log
+[2025-07-22 18:36:55][neurapy_logger.drawing_utils][INFO] : Successfully loaded 9 positions from Application_Real_Time/Robot/data/tictactoe_positions_green.json
+[2025-07-22 18:36:55][neurapy_logger.drawing_utils][INFO] : Successfully loaded 8 grid positions from Application_Real_Time/Robot/data/grid_positions_green.json
+[2025-07-22 18:37:21][neurapy_logger.drawing_utils][DEBUG] : Moving to position with pen lifted
+[2025-07-22 18:37:30][neurapy_logger.drawing_utils][DEBUG] : Successfully moved to position with pen lifting in 9.126s
+[2025-07-22 18:37:30][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-22 18:37:31][neurapy_logger.drawing_utils][INFO] : All 12 pointswith lifting validated successfully in 1.181s!
+[2025-07-22 18:37:51][neurapy_logger.drawing_utils][INFO] : Moving to safe position...
+[2025-07-22 18:38:02][neurapy_logger.drawing_utils][INFO] : Successfully moved to safe position in 11.224s
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.049m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Moving to position with pen lifted
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.049m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.049m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.049m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.049m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.049m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.050m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.050m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.051m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.051m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.051m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.051m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.051m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.051m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.051m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.051m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.051m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.051m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.051m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.051m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.051m
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.051m...
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.595), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.595), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.595), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:53][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.595), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.593), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.593), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.593), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.593), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.595), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.595), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.595), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.595), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.593), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:54][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.593), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.595), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.595), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.593), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.593), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.594), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:55][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.594), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:56][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:56][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.593), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:56][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.593), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:56][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:56][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.595), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:56][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.595), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.595), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.595), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.595), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.595), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][INFO] : Precomputed trajectories for 25 radii: 0 valid
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.040m
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.040m...
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.035m
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.035m...
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.030m
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.030m...
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.025m
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.025m...
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.020m
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.020m...
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.015m
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.015m...
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.010m
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.010m...
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Precomputing trajectory for radius 0.005m
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.005m...
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.569), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.569), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.579), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.579), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.559), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.559), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.564), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.564), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.584), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:57][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.584), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:58][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:58][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.574), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:58][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.574), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:58][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:58][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.549), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:58][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.549), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:58][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-22 18:38:58][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.554), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:58][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.554), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-22 18:38:58][neurapy_logger.drawing_utils][INFO] : Precomputed trajectories for 8 radii: 0 valid
+[2025-07-22 18:39:00][neurapy_logger.drawing_utils][DEBUG] : Successfully moved to position with pen lifting in 6.616s
+[2025-07-22 18:39:00][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-22 18:39:01][neurapy_logger.drawing_utils][INFO] : All 12 pointswith lifting validated successfully in 1.449s!
+[2025-07-22 18:39:01][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-22 18:39:03][neurapy_logger.drawing_utils][INFO] : All 12 pointswith lifting validated successfully in 1.525s!
+[2025-07-22 18:39:35][neurapy_logger.drawing_utils][INFO] : Moving to safe position...
+[2025-07-22 18:39:43][neurapy_logger.drawing_utils][INFO] : Successfully moved to safe position in 7.850s

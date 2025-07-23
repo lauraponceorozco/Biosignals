@@ -1,0 +1,3 @@
+[2025-07-06 12:18:50][neurapy_logger.circle_drawing][INFO] : Logging to file: NeuraPy\data\logs\circle_drawing_2025-07-06_12-18-50.log :(draw_circle_grid_trajectory.py:48)
+[2025-07-06 12:18:50][neurapy_logger.circle_drawing][INFO] : Starting circle drawing session :(draw_circle_grid_trajectory.py:352)
+[2025-07-06 12:19:11][neurapy_logger.circle_drawing][ERROR] : Connection timeout error: [WinError 10060] Ein Verbindungsversuch ist fehlgeschlagen, da die Gegenstelle nach einer bestimmten Zeitspanne nicht richtig reagiert hat, oder die hergestellte Verbindung war fehlerhaft, da der verbundene Host nicht reagiert hat :(draw_circle_grid_trajectory.py:466)

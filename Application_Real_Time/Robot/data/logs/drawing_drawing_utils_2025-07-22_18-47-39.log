@@ -1,0 +1,3 @@
+[2025-07-22 18:47:39][neurapy_logger.drawing_utils][INFO] : Logging to file: Application_Real_Time\Robot\data\logs\drawing_drawing_utils_2025-07-22_18-47-39.log
+[2025-07-22 18:47:40][neurapy_logger.drawing_utils][INFO] : Successfully loaded 9 positions from Application_Real_Time/Robot/data/tictactoe_positions_green.json
+[2025-07-22 18:47:40][neurapy_logger.drawing_utils][INFO] : Successfully loaded 8 grid positions from Application_Real_Time/Robot/data/grid_positions_green.json

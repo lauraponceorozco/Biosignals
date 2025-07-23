@@ -1,0 +1,2 @@
+[2025-07-22 17:43:26][neurapy_logger.drawing_utils][INFO] : Logging to file: NeuraPy\data\logs\drawing_drawing_utils_2025-07-22_17-43-26.log
+[2025-07-22 17:43:27][neurapy_logger.drawing_utils][ERROR] : Position file not found: NeuraPy/data/tictactoe_positions_green.json

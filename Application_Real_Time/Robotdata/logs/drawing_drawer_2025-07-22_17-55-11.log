@@ -1,0 +1,21 @@
+[2025-07-22 17:55:11][neurapy_logger.drawer][INFO] : Logging to file: Application_Real_Time\Robotdata\logs\drawing_drawer_2025-07-22_17-55-11.log
+[2025-07-22 17:55:11][neurapy_logger.drawer][INFO] : Logging to file: Application_Real_Time\Robotdata\logs\drawing_drawer_2025-07-22_17-55-11.log
+[2025-07-22 17:55:11][neurapy_logger.drawer][INFO] : Logging to file: Application_Real_Time\Robotdata\logs\drawing_drawer_2025-07-22_17-55-11.log
+[2025-07-22 17:55:11][neurapy_logger.drawer][INFO] : Robot initialized and ready.
+[2025-07-22 17:55:11][neurapy_logger.drawer][INFO] : Robot initialized and ready.
+[2025-07-22 17:55:12][neurapy_logger.drawer][WARNING] : No grid positions found. Grid drawing will be disabled.
+[2025-07-22 17:55:12][neurapy_logger.drawer][WARNING] : No grid positions found. Grid drawing will be disabled.
+[2025-07-22 17:55:15][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 17:55:15][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 17:55:17][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 17:55:17][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 17:55:18][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 17:55:18][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 17:55:18][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 17:55:18][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 17:55:19][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 17:55:19][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 18:01:38][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 18:01:38][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 18:01:42][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 18:01:42][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'

@@ -1,0 +1,27 @@
+[2025-07-22 18:03:56][neurapy_logger.drawer][INFO] : Logging to file: Application_Real_Time\Robotdata\logs\drawing_drawer_2025-07-22_18-03-56.log
+[2025-07-22 18:03:56][neurapy_logger.drawer][INFO] : Logging to file: Application_Real_Time\Robotdata\logs\drawing_drawer_2025-07-22_18-03-56.log
+[2025-07-22 18:03:56][neurapy_logger.drawer][INFO] : Logging to file: Application_Real_Time\Robotdata\logs\drawing_drawer_2025-07-22_18-03-56.log
+[2025-07-22 18:03:56][neurapy_logger.drawer][INFO] : Robot initialized and ready.
+[2025-07-22 18:03:56][neurapy_logger.drawer][INFO] : Robot initialized and ready.
+[2025-07-22 18:03:57][neurapy_logger.drawer][WARNING] : No grid positions found. Grid drawing will be disabled.
+[2025-07-22 18:03:57][neurapy_logger.drawer][WARNING] : No grid positions found. Grid drawing will be disabled.
+[2025-07-22 18:03:59][neurapy_logger.drawer][DEBUG] : Radii to try: [0.049      0.04908333 0.04916667 0.04925    0.04933333 0.04941667
+ 0.0495     0.04958333 0.04966667 0.04975    0.04983333 0.04991667
+ 0.05       0.05008333 0.05016667 0.05025    0.05033333 0.05041667
+ 0.0505     0.05058333 0.05066667 0.05075    0.05083333 0.05091667
+ 0.051     ]
+[2025-07-22 18:03:59][neurapy_logger.drawer][DEBUG] : Radii to try: [0.049      0.04908333 0.04916667 0.04925    0.04933333 0.04941667
+ 0.0495     0.04958333 0.04966667 0.04975    0.04983333 0.04991667
+ 0.05       0.05008333 0.05016667 0.05025    0.05033333 0.05041667
+ 0.0505     0.05058333 0.05066667 0.05075    0.05083333 0.05091667
+ 0.051     ]
+[2025-07-22 18:04:16][neurapy_logger.drawer][DEBUG] : Radii to try: [0.049      0.04908333 0.04916667 0.04925    0.04933333 0.04941667
+ 0.0495     0.04958333 0.04966667 0.04975    0.04983333 0.04991667
+ 0.05       0.05008333 0.05016667 0.05025    0.05033333 0.05041667
+ 0.0505     0.05058333 0.05066667 0.05075    0.05083333 0.05091667
+ 0.051     ]
+[2025-07-22 18:04:16][neurapy_logger.drawer][DEBUG] : Radii to try: [0.049      0.04908333 0.04916667 0.04925    0.04933333 0.04941667
+ 0.0495     0.04958333 0.04966667 0.04975    0.04983333 0.04991667
+ 0.05       0.05008333 0.05016667 0.05025    0.05033333 0.05041667
+ 0.0505     0.05058333 0.05066667 0.05075    0.05083333 0.05091667
+ 0.051     ]

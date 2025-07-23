@@ -1,0 +1,65 @@
+[2025-07-22 17:39:04][neurapy_logger.drawer][INFO] : Logging to file: NeuraPy\data\logs\drawing_drawer_2025-07-22_17-39-04.log
+[2025-07-22 17:39:04][neurapy_logger.drawer][INFO] : Logging to file: NeuraPy\data\logs\drawing_drawer_2025-07-22_17-39-04.log
+[2025-07-22 17:39:04][neurapy_logger.drawer][INFO] : Logging to file: NeuraPy\data\logs\drawing_drawer_2025-07-22_17-39-04.log
+[2025-07-22 17:39:04][neurapy_logger.drawer][INFO] : Robot initialized and ready.
+[2025-07-22 17:39:04][neurapy_logger.drawer][INFO] : Robot initialized and ready.
+[2025-07-22 17:39:05][neurapy_logger.drawer][WARNING] : No grid positions found. Grid drawing will be disabled.
+[2025-07-22 17:39:05][neurapy_logger.drawer][WARNING] : No grid positions found. Grid drawing will be disabled.
+[2025-07-22 17:39:20][neurapy_logger.drawer][DEBUG] : Radii to try: [0.049      0.04908333 0.04916667 0.04925    0.04933333 0.04941667
+ 0.0495     0.04958333 0.04966667 0.04975    0.04983333 0.04991667
+ 0.05       0.05008333 0.05016667 0.05025    0.05033333 0.05041667
+ 0.0505     0.05058333 0.05066667 0.05075    0.05083333 0.05091667
+ 0.051     ]
+[2025-07-22 17:39:20][neurapy_logger.drawer][DEBUG] : Radii to try: [0.049      0.04908333 0.04916667 0.04925    0.04933333 0.04941667
+ 0.0495     0.04958333 0.04966667 0.04975    0.04983333 0.04991667
+ 0.05       0.05008333 0.05016667 0.05025    0.05033333 0.05041667
+ 0.0505     0.05058333 0.05066667 0.05075    0.05083333 0.05091667
+ 0.051     ]
+[2025-07-22 17:39:20][neurapy_logger.drawer][DEBUG] : Starting precomputation for 25 radii during movement
+[2025-07-22 17:39:20][neurapy_logger.drawer][DEBUG] : Starting precomputation for 25 radii during movement
+[2025-07-22 17:39:20][neurapy_logger.drawer][ERROR] : Precomputation failed: name 'selected_pose' is not defined
+[2025-07-22 17:39:20][neurapy_logger.drawer][ERROR] : Precomputation failed: name 'selected_pose' is not defined
+[2025-07-22 17:39:20][neurapy_logger.drawer][DEBUG] : Moving to selected position with pen lifting: upper_center
+[2025-07-22 17:39:20][neurapy_logger.drawer][DEBUG] : Moving to selected position with pen lifting: upper_center
+[2025-07-22 17:39:27][neurapy_logger.drawer][DEBUG] : Selected: upper_center, Pose: [0.299, 0.237, 1.546, 1.205, 1.423, 2.81]
+[2025-07-22 17:39:27][neurapy_logger.drawer][DEBUG] : Selected: upper_center, Pose: [0.299, 0.237, 1.546, 1.205, 1.423, 2.81]
+[2025-07-22 17:40:00][neurapy_logger.drawer][INFO] : Position upper_center - Duration: 39.33s, Success: True, Radius: 0.049, Avg: 39.33s, Min: 39.33s, Max: 39.33s
+[2025-07-22 17:40:00][neurapy_logger.drawer][INFO] : Position upper_center - Duration: 39.33s, Success: True, Radius: 0.049, Avg: 39.33s, Min: 39.33s, Max: 39.33s
+[2025-07-22 17:40:00][neurapy_logger.drawer][DEBUG] : Radii to try: [0.049      0.04908333 0.04916667 0.04925    0.04933333 0.04941667
+ 0.0495     0.04958333 0.04966667 0.04975    0.04983333 0.04991667
+ 0.05       0.05008333 0.05016667 0.05025    0.05033333 0.05041667
+ 0.0505     0.05058333 0.05066667 0.05075    0.05083333 0.05091667
+ 0.051     ]
+[2025-07-22 17:40:00][neurapy_logger.drawer][DEBUG] : Radii to try: [0.049      0.04908333 0.04916667 0.04925    0.04933333 0.04941667
+ 0.0495     0.04958333 0.04966667 0.04975    0.04983333 0.04991667
+ 0.05       0.05008333 0.05016667 0.05025    0.05033333 0.05041667
+ 0.0505     0.05058333 0.05066667 0.05075    0.05083333 0.05091667
+ 0.051     ]
+[2025-07-22 17:40:00][neurapy_logger.drawer][DEBUG] : Starting precomputation for 25 radii during movement
+[2025-07-22 17:40:00][neurapy_logger.drawer][DEBUG] : Starting precomputation for 25 radii during movement
+[2025-07-22 17:40:00][neurapy_logger.drawer][DEBUG] : Moving to selected position with pen lifting: upper_center
+[2025-07-22 17:40:00][neurapy_logger.drawer][DEBUG] : Moving to selected position with pen lifting: upper_center
+[2025-07-22 17:40:08][neurapy_logger.drawer][DEBUG] : Selected: upper_center, Pose: [0.299, 0.237, 1.546, 1.205, 1.423, 2.81]
+[2025-07-22 17:40:08][neurapy_logger.drawer][DEBUG] : Selected: upper_center, Pose: [0.299, 0.237, 1.546, 1.205, 1.423, 2.81]
+[2025-07-22 17:40:13][neurapy_logger.drawer][WARNING] : Precomputation timeout, falling back to original method
+[2025-07-22 17:40:13][neurapy_logger.drawer][WARNING] : Precomputation timeout, falling back to original method
+[2025-07-22 17:40:22][neurapy_logger.drawer][INFO] : Precomputation completed: 10 valid trajectories
+[2025-07-22 17:40:22][neurapy_logger.drawer][INFO] : Precomputation completed: 10 valid trajectories
+[2025-07-22 17:40:52][neurapy_logger.drawer][INFO] : Position upper_center - Duration: 52.31s, Success: True, Radius: 0.04916666666666667, Avg: 45.82s, Min: 39.33s, Max: 52.31s
+[2025-07-22 17:40:52][neurapy_logger.drawer][INFO] : Position upper_center - Duration: 52.31s, Success: True, Radius: 0.04916666666666667, Avg: 45.82s, Min: 39.33s, Max: 52.31s
+[2025-07-22 17:40:52][neurapy_logger.drawer][DEBUG] : Radii to try: [0.049      0.04908333 0.04916667 0.04925    0.04933333 0.04941667
+ 0.0495     0.04958333 0.04966667 0.04975    0.04983333 0.04991667
+ 0.05       0.05008333 0.05016667 0.05025    0.05033333 0.05041667
+ 0.0505     0.05058333 0.05066667 0.05075    0.05083333 0.05091667
+ 0.051     ]
+[2025-07-22 17:40:52][neurapy_logger.drawer][DEBUG] : Radii to try: [0.049      0.04908333 0.04916667 0.04925    0.04933333 0.04941667
+ 0.0495     0.04958333 0.04966667 0.04975    0.04983333 0.04991667
+ 0.05       0.05008333 0.05016667 0.05025    0.05033333 0.05041667
+ 0.0505     0.05058333 0.05066667 0.05075    0.05083333 0.05091667
+ 0.051     ]
+[2025-07-22 17:40:52][neurapy_logger.drawer][DEBUG] : Starting precomputation for 25 radii during movement
+[2025-07-22 17:40:52][neurapy_logger.drawer][DEBUG] : Starting precomputation for 25 radii during movement
+[2025-07-22 17:40:52][neurapy_logger.drawer][DEBUG] : Moving to selected position with pen lifting: upper_center
+[2025-07-22 17:40:52][neurapy_logger.drawer][DEBUG] : Moving to selected position with pen lifting: upper_center
+[2025-07-22 17:40:59][neurapy_logger.drawer][DEBUG] : Selected: upper_center, Pose: [0.299, 0.237, 1.546, 1.205, 1.423, 2.81]
+[2025-07-22 17:40:59][neurapy_logger.drawer][DEBUG] : Selected: upper_center, Pose: [0.299, 0.237, 1.546, 1.205, 1.423, 2.81]

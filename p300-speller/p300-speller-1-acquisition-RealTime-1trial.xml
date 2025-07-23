@@ -189,7 +189,7 @@
 					<TypeIdentifier>(0x007deef9, 0x2f3e95c6)</TypeIdentifier>
 					<Name>Number of repetitions</Name>
 					<DefaultValue>5</DefaultValue>
-					<Value>1</Value>
+					<Value>5</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -541,7 +541,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue>record-[$core{date}-$core{time}].csv</DefaultValue>
-					<Value>C:/Users/chris/Documents/Master_MSNE/SS25/BSPM/Biosignals/Application_Real_Time/data_real_time/cur_rec/dummy.csv</Value>
+					<Value>C:/Users/chris/Documents/Master_MSNE/SS25/BSPM/Biosignals/Application_Real_Time/Robot/cur_rec/rec.csv</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
