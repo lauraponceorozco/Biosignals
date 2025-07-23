@@ -1,0 +1,15 @@
+[2025-07-23 12:46:44][neurapy_logger.drawing_utils][INFO] : Logging to file: Application_Real_Time\Robot\data\logs\drawing_drawing_utils_2025-07-23_12-46-44.log
+[2025-07-23 12:46:45][neurapy_logger.drawing_utils][INFO] : Successfully loaded 9 positions from Application_Real_Time/Robot/data/tictactoe_positions_green.json
+[2025-07-23 12:46:45][neurapy_logger.drawing_utils][INFO] : Successfully loaded 8 grid positions from Application_Real_Time/Robot/data/grid_positions_green.json
+[2025-07-23 12:46:50][neurapy_logger.drawing_utils][DEBUG] : Moving to position with pen lifted
+[2025-07-23 12:47:00][neurapy_logger.drawing_utils][DEBUG] : Successfully moved to position with pen lifting in 9.751s
+[2025-07-23 12:47:00][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-23 12:47:00][neurapy_logger.drawing_utils][WARNING] : Point 1 (angle 0.0°) not reachable: Couldn't find the IK for the given pose
+[2025-07-23 12:47:00][neurapy_logger.drawing_utils][DEBUG] : Regular pose: [np.float64(0.593), 0.246, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-23 12:47:00][neurapy_logger.drawing_utils][DEBUG] : Lifted pose: [np.float64(0.593), 0.226, np.float64(1.536), 1.244, 1.314, 2.874]
+[2025-07-23 12:47:00][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-23 12:47:01][neurapy_logger.drawing_utils][WARNING] : Point 2 (angle 0.5°) not reachable: Couldn't find the IK for the given pose
+[2025-07-23 12:47:01][neurapy_logger.drawing_utils][INFO] : Validating 12 pointswith lifting for radius 0.049m...
+[2025-07-23 12:47:02][neurapy_logger.drawing_utils][INFO] : All 12 pointswith lifting validated successfully in 1.116s!
+[2025-07-23 12:47:22][neurapy_logger.drawing_utils][INFO] : Moving to safe position...
+[2025-07-23 12:47:33][neurapy_logger.drawing_utils][INFO] : Successfully moved to safe position in 10.964s

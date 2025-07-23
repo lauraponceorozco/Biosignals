@@ -541,7 +541,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue>record-[$core{date}-$core{time}].csv</DefaultValue>
-					<Value>C:/Users/chris/Documents/Master_MSNE/SS25/BSPM/Biosignals/Application_Real_Time/data_real_time/cur_rec/dummy.csv</Value>
+					<Value>C:/Users/chris/Documents/Master_MSNE/SS25/BSPM/Biosignals/data/test.csv</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>

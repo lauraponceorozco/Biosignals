@@ -1,0 +1,11 @@
+[2025-07-22 18:02:28][neurapy_logger.drawer][INFO] : Logging to file: Application_Real_Time\Robotdata\logs\drawing_drawer_2025-07-22_18-02-28.log
+[2025-07-22 18:02:28][neurapy_logger.drawer][INFO] : Logging to file: Application_Real_Time\Robotdata\logs\drawing_drawer_2025-07-22_18-02-28.log
+[2025-07-22 18:02:28][neurapy_logger.drawer][INFO] : Logging to file: Application_Real_Time\Robotdata\logs\drawing_drawer_2025-07-22_18-02-28.log
+[2025-07-22 18:02:28][neurapy_logger.drawer][INFO] : Robot initialized and ready.
+[2025-07-22 18:02:28][neurapy_logger.drawer][INFO] : Robot initialized and ready.
+[2025-07-22 18:02:29][neurapy_logger.drawer][WARNING] : No grid positions found. Grid drawing will be disabled.
+[2025-07-22 18:02:29][neurapy_logger.drawer][WARNING] : No grid positions found. Grid drawing will be disabled.
+[2025-07-22 18:02:33][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 18:02:33][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 18:02:35][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'
+[2025-07-22 18:02:35][neurapy_logger.drawer][ERROR] : Unhandled exception: '<=' not supported between instances of 'int' and 'str'

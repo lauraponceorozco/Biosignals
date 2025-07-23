@@ -1,0 +1,46 @@
+[2025-07-22 18:13:28][neurapy_logger.drawing_functions][INFO] : Logging to file: Application_Real_Time\Robot\data\logs\drawing_drawing_functions_2025-07-22_18-13-28.log
+[2025-07-22 18:13:42][neurapy_logger.drawing_functions][INFO] : Drawing circle with radius: 0.049 m
+[2025-07-22 18:13:43][neurapy_logger.drawing_functions][ERROR] : Circle validation with lifting failed for radius 0.049m
+[2025-07-22 18:13:43][neurapy_logger.drawing_functions][INFO] : Drawing circle with radius: 0.049 m
+[2025-07-22 18:13:44][neurapy_logger.drawing_functions][DEBUG] : First point (lifted): [np.float64(0.57), 0.247, np.float64(1.284), 1.162, 1.403, 2.79]
+[2025-07-22 18:13:44][neurapy_logger.drawing_functions][DEBUG] : First point (lifted) IK computed successfully
+[2025-07-22 18:13:44][neurapy_logger.drawing_functions][DEBUG] : Point 2 (angle 0.5°) IK computed successfully
+[2025-07-22 18:13:44][neurapy_logger.drawing_functions][ERROR] : Unexpected IK error at point 3 (angle 1.0°): Couldn't find the IK for the given pose
+[2025-07-22 18:13:44][neurapy_logger.drawing_functions][ERROR] : Target pose: [np.float64(0.546), 0.267, np.float64(1.327), 1.162, 1.403, 2.79]
+[2025-07-22 18:13:44][neurapy_logger.drawing_functions][INFO] : Drawing circle with radius: 0.049 m
+[2025-07-22 18:13:45][neurapy_logger.drawing_functions][DEBUG] : First point (lifted): [np.float64(0.57), 0.247, np.float64(1.284), 1.162, 1.403, 2.79]
+[2025-07-22 18:13:46][neurapy_logger.drawing_functions][DEBUG] : First point (lifted) IK computed successfully
+[2025-07-22 18:13:46][neurapy_logger.drawing_functions][DEBUG] : Point 2 (angle 0.5°) IK computed successfully
+[2025-07-22 18:13:46][neurapy_logger.drawing_functions][DEBUG] : Point 3 (angle 1.0°) IK computed successfully
+[2025-07-22 18:13:46][neurapy_logger.drawing_functions][DEBUG] : Point 4 (angle 1.6°) IK computed successfully
+[2025-07-22 18:13:46][neurapy_logger.drawing_functions][DEBUG] : Point 5 (angle 2.1°) IK computed successfully
+[2025-07-22 18:13:46][neurapy_logger.drawing_functions][DEBUG] : Point 6 (angle 2.6°) IK computed successfully
+[2025-07-22 18:13:46][neurapy_logger.drawing_functions][DEBUG] : Point 7 (angle 3.1°) IK computed successfully
+[2025-07-22 18:13:46][neurapy_logger.drawing_functions][DEBUG] : Point 8 (angle 3.7°) IK computed successfully
+[2025-07-22 18:13:46][neurapy_logger.drawing_functions][DEBUG] : Point 9 (angle 4.2°) IK computed successfully
+[2025-07-22 18:13:46][neurapy_logger.drawing_functions][DEBUG] : Point 10 (angle 4.7°) IK computed successfully
+[2025-07-22 18:13:47][neurapy_logger.drawing_functions][DEBUG] : Point 11 (angle 5.2°) IK computed successfully
+[2025-07-22 18:13:47][neurapy_logger.drawing_functions][DEBUG] : Point 12 (angle 5.8°) IK computed successfully
+[2025-07-22 18:13:47][neurapy_logger.drawing_functions][DEBUG] : Circle completion point (angle 0.0°) IK computed successfully
+[2025-07-22 18:13:47][neurapy_logger.drawing_functions][DEBUG] : Using reference joints: [2.553, -1.087, -0.61, 1.551, -0.729, 0.76, 0.074]
+[2025-07-22 18:13:49][neurapy_logger.drawing_functions][DEBUG] : Moved to first point with pen lifted
+[2025-07-22 18:14:05][neurapy_logger.drawing_functions][INFO] : Circle completed successfully!
+[2025-07-22 18:17:06][neurapy_logger.drawing_functions][INFO] : Drawing circle with radius: 0.049 m
+[2025-07-22 18:17:06][neurapy_logger.drawing_functions][INFO] : Applying scaling factor 1.15 for position upper_left
+[2025-07-22 18:17:07][neurapy_logger.drawing_functions][DEBUG] : First point (lifted): [np.float64(0.072), 0.23, np.float64(1.562), 1.197, 1.458, 2.795]
+[2025-07-22 18:17:07][neurapy_logger.drawing_functions][DEBUG] : First point (lifted) IK computed successfully
+[2025-07-22 18:17:07][neurapy_logger.drawing_functions][DEBUG] : Point 2 (angle 0.5°) IK computed successfully
+[2025-07-22 18:17:07][neurapy_logger.drawing_functions][DEBUG] : Point 3 (angle 1.0°) IK computed successfully
+[2025-07-22 18:17:07][neurapy_logger.drawing_functions][DEBUG] : Point 4 (angle 1.6°) IK computed successfully
+[2025-07-22 18:17:08][neurapy_logger.drawing_functions][DEBUG] : Point 5 (angle 2.1°) IK computed successfully
+[2025-07-22 18:17:08][neurapy_logger.drawing_functions][DEBUG] : Point 6 (angle 2.6°) IK computed successfully
+[2025-07-22 18:17:08][neurapy_logger.drawing_functions][DEBUG] : Point 7 (angle 3.1°) IK computed successfully
+[2025-07-22 18:17:08][neurapy_logger.drawing_functions][DEBUG] : Point 8 (angle 3.7°) IK computed successfully
+[2025-07-22 18:17:08][neurapy_logger.drawing_functions][DEBUG] : Point 9 (angle 4.2°) IK computed successfully
+[2025-07-22 18:17:08][neurapy_logger.drawing_functions][DEBUG] : Point 10 (angle 4.7°) IK computed successfully
+[2025-07-22 18:17:08][neurapy_logger.drawing_functions][DEBUG] : Point 11 (angle 5.2°) IK computed successfully
+[2025-07-22 18:17:08][neurapy_logger.drawing_functions][DEBUG] : Point 12 (angle 5.8°) IK computed successfully
+[2025-07-22 18:17:08][neurapy_logger.drawing_functions][DEBUG] : Circle completion point (angle 0.0°) IK computed successfully
+[2025-07-22 18:17:09][neurapy_logger.drawing_functions][DEBUG] : Using reference joints: [1.641, -0.537, -0.049, 1.275, 0.007, 0.789, 0.074]
+[2025-07-22 18:17:12][neurapy_logger.drawing_functions][DEBUG] : Moved to first point with pen lifted
+[2025-07-22 18:17:37][neurapy_logger.drawing_functions][INFO] : Circle completed successfully!
